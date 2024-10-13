@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Move Box</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box" onclick="moveBox(this)"></div>
+
+    <script>
+        function moveBox(element) {
+            // Generate random positions within the window's dimensions
+            const randomX = Math.floor(Math.random() * (window.innerWidth - element.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - element.offsetHeight));
+
+            // Set the box's new position
+            element.style.left = randomX + 'px';
+            element.style.top = randomY + 'px';
+        }
+    </script>
+    
+</body>
+</html>
